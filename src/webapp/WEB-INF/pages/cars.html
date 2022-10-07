@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+</head>
+<body>
+    <h1>Cars:</h1>
+    <table th:style="'width: 50%;
+         border: 1px solid #ddd;'">
+        <thead th:style="'width: 100%;
+            font-weight: bold;
+            text-align: left;
+            padding: 10px 15px;
+	        background: #d8d8d8;
+	        font-size: 14px;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;'">
+            <tr>
+                <th>№</th>
+                <th>Model</th>
+                <th>Country</th>
+                <th>Max speed</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="car, position : ${cars}"
+                th:style="'text-align: left;
+                padding: 10px 15px;
+	            background: #f3f3f3;
+	            font-size: 14px;
+                border-left: 1px solid #ddd;
+                border-right: 1px solid #ddd;'">
+                <td th:text="${position.index} + 1"></td>
+                <td th:text="${car.getModel()}"></td>
+                <td th:text="${car.getCountry()}"></td>
+                <td th:text="${car.getMaxSpeed}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
